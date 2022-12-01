@@ -1,0 +1,12 @@
+ 
+ 
+ Q.1)
+  Ans:-
+    
+    i) Runnable –> This interface only contains the run() method.
+    
+    ii) Comparable –> This interface only contains the compareTo() method.
+    
+    iii) ActionListener –> This interface only contains the actionPerformed() method.
+    
+    iv) Callable –> This interface only contains the call() method.

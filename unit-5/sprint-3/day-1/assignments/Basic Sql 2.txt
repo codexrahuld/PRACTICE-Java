@@ -1,0 +1,162 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 17
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| web20sb101db       |
++--------------------+
+5 rows in set (0.09 sec)
+
+mysql> use web20sb101db;
+Database changed
+mysql> create table STUDENT(NAME VARCHAR(20),ROLLNO INT,BRANCH VARCHAR(20), CITY VARCHAR(20));
+Query OK, 0 rows affected (0.66 sec)
+
+mysql> DROP TABLE STUDENT;
+Query OK, 0 rows affected (0.12 sec)
+
+mysql>  CREATE TABLE STUDENT( NAME VARCHAR(20),ROLLNO INT,BRANCH VARCHAR(20),CITY VARCHAR(20));
+Query OK, 0 rows affected (0.15 sec)
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NAME   | varchar(20) | YES  |     | NULL    |       |
+| ROLLNO | int         | YES  |     | NULL    |       |
+| BRANCH | varchar(20) | YES  |     | NULL    |       |
+| CITY   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.06 sec)
+
+mysql>  INSERT INTO STUDENT VALUES('VIJAYA',150,'CSE','CHENNAI');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> INSERT INTO STUDENT VALUES('SITA',202,'ETC','KOLKATA');
+Query OK, 1 row affected (0.05 sec)
+
+mysql>  INSERT INTO STUDENT VALUES('RAVI',300,'EEE','DELHI');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO STUDENT VALUES('BASU',165,'ETC','CHENNAI');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>  INSERT INTO STUDENT VALUES('RASMI',107,'ETC','RKL');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> INSERT INTO STUDENT VALUES('KARAN',111,'CSE','CTC');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> INSERT INTO STUDENT VALUES('REKHA',117,'BME','BBSR');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> desc student;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| NAME   | varchar(20) | YES  |     | NULL    |       |
+| ROLLNO | int         | YES  |     | NULL    |       |
+| BRANCH | varchar(20) | YES  |     | NULL    |       |
+| CITY   | varchar(20) | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> select * from student;
++--------+--------+--------+---------+
+| NAME   | ROLLNO | BRANCH | CITY    |
++--------+--------+--------+---------+
+| VIJAYA |    150 | CSE    | CHENNAI |
+| SITA   |    202 | ETC    | KOLKATA |
+| RAVI   |    300 | EEE    | DELHI   |
+| BASU   |    165 | ETC    | CHENNAI |
+| RASMI  |    107 | ETC    | RKL     |
+| KARAN  |    111 | CSE    | CTC     |
+| REKHA  |    117 | BME    | BBSR    |
++--------+--------+--------+---------+
+7 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(NAME) AS NumOfStudents FROM STUDENT;
++---------------+
+| NumOfStudents |
++---------------+
+|             7 |
++---------------+
+1 row in set (0.08 sec)
+
+mysql> SELECT COUNT(NAME) AS NumOfStudents FROM STUDENT WHERE BRANCH LIKE 'E%';
++---------------+
+| NumOfStudents |
++---------------+
+|             4 |
++---------------+
+1 row in set (0.00 sec)
+
+mysql> ALTER TABLE STUDENT ADD MARKS INT(8);
+Query OK, 0 rows affected, 1 warning (0.31 sec)
+Records: 0  Duplicates: 0  Warnings: 1
+
+mysql>  SELECT * FROM STUDENT;
++--------+--------+--------+---------+-------+
+| NAME   | ROLLNO | BRANCH | CITY    | MARKS |
++--------+--------+--------+---------+-------+
+| VIJAYA |    150 | CSE    | CHENNAI |  NULL |
+| SITA   |    202 | ETC    | KOLKATA |  NULL |
+| RAVI   |    300 | EEE    | DELHI   |  NULL |
+| BASU   |    165 | ETC    | CHENNAI |  NULL |
+| RASMI  |    107 | ETC    | RKL     |  NULL |
+| KARAN  |    111 | CSE    | CTC     |  NULL |
+| REKHA  |    117 | BME    | BBSR    |  NULL |
++--------+--------+--------+---------+-------+
+7 rows in set (0.00 sec)
+
+mysql> alter table student modify NAME VARCHAR(25);
+Query OK, 0 rows affected (0.11 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> DELETE DROM STUDENT WHERE BRANCH = 'ETC';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'STUDENT WHERE BRANCH = 'ETC'' at line 1
+mysql> DELETE FROM STUDENT WHERE BRANCH = 'ETC';
+Query OK, 3 rows affected (0.12 sec)
+
+mysql> select * from student;
++--------+--------+--------+---------+-------+
+| NAME   | ROLLNO | BRANCH | CITY    | MARKS |
++--------+--------+--------+---------+-------+
+| VIJAYA |    150 | CSE    | CHENNAI |  NULL |
+| RAVI   |    300 | EEE    | DELHI   |  NULL |
+| KARAN  |    111 | CSE    | CTC     |  NULL |
+| REKHA  |    117 | BME    | BBSR    |  NULL |
++--------+--------+--------+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql>  RENAME TABLE STUDENT TO STUDENTINFORMATION;
+Query OK, 0 rows affected (0.14 sec)
+
+mysql> TRUNCATE TABLE STUDENTINFORMATION;
+Query OK, 0 rows affected (0.18 sec)
+
+mysql> SELECT * FROM STUDENTINFORMATION;
+Empty set (0.00 sec)
+
+mysql> DROP TABLE STUDENTINFORMATION;
+Query OK, 0 rows affected (0.08 sec)
+
+mysql> DESC STUDENTINFORMATION;
+ERROR 1146 (42S02): Table 'web20sb101db.studentinformation' doesn't exist
+mysql>

@@ -1,0 +1,11 @@
+
+Q4/ Explain about thread synchronization(inter-thread communication) ?
+Ans) 
+
+		inter-thread communication :  Inter-thread communication is a mechanism in which a thread is paused running in its critical section 
+ 		  ============================== and another thread is allowed to enter (or lock) in the same critical section to be executed.It is 
+     							  implemented by following methods of Object class:
+
+			1) wait() .
+			2) notify() .
+			3) notifyAll() .

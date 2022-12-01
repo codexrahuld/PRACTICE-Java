@@ -1,0 +1,23 @@
+
+
+
+Q1) Differentiate between static and non-static variables?
+
+1)Like static methods, a static variable belongs to the class itself,
+ and a non-static variable belongs to each instance of a class. Therefore, 
+ the value of a static variable remains the same for each instance of the class, 
+ but the same cannot be said for the non-static variable.
+ 
+ 2)We cannot access non-static variables inside a static method without an instance of its class. 
+	 A static method can only access static variables while a non-static
+	  method can access both static and non-static variables.
+	  
+3)Static variables reduce the memory footprint of the program. This is because the memory is allocated only once for a static variable during the time of class loading, while for a non-static variable,
+  memory is allocated every time an instance of the class is created.	  
+
+4)Static variables are usually declared as final in Java. This ensures the value never gets changed after its initialization. This is
+   very useful when we need a single copy of the variable to be shared across all class instances.
+ 
+5)Static variables can be accessed using the class name,
+ while a reference to a non-static variable needs an instance of the class. For example, the standard output stream out is declared static in the System class, 
+ called using System.out.

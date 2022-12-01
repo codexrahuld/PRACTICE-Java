@@ -1,0 +1,8 @@
+
+
+
+1) Explain the concept of static in Java.
+Ans:- In the java programming language, or in object oriented programming language Static means that the 
+		particular member belongs to a type itself, rather than to an instance of that type,  It means we will create 
+		only one instance of that static member that is shared across all instances of the class.
+		The static keyword in java is used for memory management mainly.

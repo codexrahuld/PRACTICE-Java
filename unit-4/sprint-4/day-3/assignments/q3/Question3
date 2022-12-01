@@ -1,0 +1,16 @@
+
+
+
+
+Q.3)
+ Explain the difference between equals() and HashCode() Method.
+
+
+
+    ANS:->
+     The equals is similar to the == operator, which is to test for object identity 
+    rather than object equality. The hashCode is a method by which a class implicitly
+    or explicitly break down the data stored in an instance of the class into a single hash value,
+    which is a 32 bit signed integer. The key difference between equals and hashCode in Java is that
+    the equals is used to compare two objects while the hashCode is used in hashing to decide
+    which group an object should be categorized into.

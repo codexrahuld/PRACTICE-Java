@@ -1,0 +1,22 @@
+
+
+
+Q4) Write down the responsibilities of the Jdbc Client.
+
+Ans:->
+
+	JDBC makes it possible to do establish a connection with a data source, 
+	send queries and update statements, and process the results.
+	
+	//Simply, JDBC makes it possible to do the following things within a Java application:
+		1) Establish a connection with a data source.
+		2) Send queries and update statements to the data source.
+		3)Process the results.
+		
+		The Java application calls JDBC classes and interfaces to submit SQL statements and retrieve results.
+
+	//The JDBC API is implemented through the JDBC driver. 
+	//The JDBC Driver is a set of classes that implement the JDBC interfaces to process JDBC calls and 
+	return result sets to a Java application. The database (or data store) stores the data retrieved by 
+	the application using the JDBC Driver.
+	

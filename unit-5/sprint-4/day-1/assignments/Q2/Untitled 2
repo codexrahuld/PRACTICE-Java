@@ -1,0 +1,12 @@
+
+
+
+
+Q2/- What is JDBC, Write a note on JDBC driver software.
+
+Ans:->
+
+	A JDBC driver is a software component enabling a Java application to interact with a database.
+	JDBC drivers are analogous to ODBC drivers, ADO.NET data providers, and OLE DB providers. 
+	To connect with individual databases, JDBC (the Java Database Connectivity API) requires drivers
+	for each database.

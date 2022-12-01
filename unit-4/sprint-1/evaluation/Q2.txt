@@ -1,0 +1,16 @@
+Q2: Differentiate between JRE, JVM and JDK.
+
+
+Ans:-  JDK :- Java Development Kit (JDk) is a software development environment used for developing java
+                applications and applets. it includes the java Runtime Environment(JRE) an interpreter/loader
+                a compiler or a documentation generator and some other tools also.
+
+       JRE :- It is stands for Java Runtime Environment, The java Runtime Environment provides the minimum
+                requirements for execution a java application, It is an istallation package that provides an
+                environment to only run the java program.
+
+       JVM :- JVM Stands for Java Virtual Machine: It is the part of both JDK and JRE because it is ontained in both.
+                It includes a Specification where the working of java virtul machine is specified,
+                but implementation provider is independent to choose the algorithm.
+                An implementation is the a computer program that meets the requirements of the JVM
+                specification.

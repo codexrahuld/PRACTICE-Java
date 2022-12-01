@@ -1,0 +1,9 @@
+
+
+3) What is the main() method in java, explain it's signature in detail.
+
+Ans:- Java main method is the entry point of any java Program. It's syntax is always public static void main
+	(string[] args). You can only change the name of string array argument, for example you can change args to
+	 mystringArgs. Also String array argument can be witten as String... args  or  String args[].
+	It is a default signature which is predefined in the JVM. It is called by JVM to execute a program line by line
+	and end the execution after completion of this method. We can alo overload the main() method.

@@ -1,0 +1,16 @@
+
+
+
+2.What’s the difference between class lock and object lock?
+
+Ans:-
+	 In multithreading environment, two or more threads can access the shared 
+	 resources simultaneously which can lead the inconsistent behavior of the system.
+	 Java uses concept of locks to restrict concurrent access of shared resources or 
+	 objects. Locks can be applied at two levels
+
+	 1.Object Level Locks − It can be used when you want non-static method or non-static block 
+	   of the code should be accessed by only one thread.
+	 2.Class Level locks − It can be used when we want to prevent multiple threads
+	   to enter the synchronized block in any of all available instances on runtime. 
+	   It should always be used to make static data thread safe.

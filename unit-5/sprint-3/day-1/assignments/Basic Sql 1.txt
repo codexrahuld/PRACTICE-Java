@@ -1,0 +1,390 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 16
+Server version: 8.0.31 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
+| sys                |
+| web20sb101db       |
++--------------------+
+5 rows in set (0.09 sec)
+
+mysql> use web20sb101db;
+Database changed
+mysql> create table deposit(ACTNO VARCHAR(25),CNAME VARCHAR(20),BNAME VARCHAR(20), AMOUNT INT, ADATE DATE);
+Query OK, 0 rows affected (1.34 sec)
+
+mysql> desc deposit;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| ACTNO  | varchar(25) | YES  |     | NULL    |       |
+| CNAME  | varchar(20) | YES  |     | NULL    |       |
+| BNAME  | varchar(20) | YES  |     | NULL    |       |
+| AMOUNT | int         | YES  |     | NULL    |       |
+| ADATE  | date        | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+5 rows in set (0.28 sec)
+
+mysql> desc branch
+    -> desc branch;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc branch' at line 2
+mysql> desc branch;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Bname | varchar(20) | YES  |     | NULL    |       |
+| City  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.05 sec)
+
+mysql> desc CUSTOMER;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Cname | varchar(20) | YES  |     | NULL    |       |
+| City  | varchar(20) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> desc BORROW;
++--------+-------------+------+-----+---------+-------+
+| Field  | Type        | Null | Key | Default | Extra |
++--------+-------------+------+-----+---------+-------+
+| LoanNo | varchar(5)  | YES  |     | NULL    |       |
+| Cname  | varchar(20) | YES  |     | NULL    |       |
+| Bname  | varchar(20) | YES  |     | NULL    |       |
+| Amount | int         | YES  |     | NULL    |       |
++--------+-------------+------+-----+---------+-------+
+4 rows in set (0.02 sec)
+
+mysql> select * from deposit;
+Empty set (0.08 sec)
+
+mysql> insert into deposit values(100,'ANIL','VRCE',1000.00,'1995-03-01');
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into deposit values(100,'SUNIL','MGROAD',5000.00,'1996-01-04');
+Query OK, 1 row affected (0.08 sec)
+
+mysql>  insert into deposit values(102,'RAHUL','KAROLABAGH',3500.00,'1995-11-17');
+Query OK, 1 row affected (0.02 sec)
+
+mysql> insert into deposit values(103,'MADHURI','CHANDNI',1200.00,'1995-12-17');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into deposit values(104,'PRAMOD','MGROAD',3000.00,'1996-03-27');
+Query OK, 1 row affected (0.06 sec)
+
+mysql>  insert into deposit values(105,'SANDIP','KAROLABAGH',2000.00,'1996-03-31');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> select * from deposit;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 100   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql>  update deposit set ACTNO = 101 where CNAME = 'SUNIL';
+Query OK, 1 row affected (0.08 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from deposit;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql>  insert into branch values(VRCE,NAGPUR);
+ERROR 1054 (42S22): Unknown column 'VRCE' in 'field list'
+mysql> insert into branch values('KORLABAGH','DELHI');
+Query OK, 1 row affected (0.04 sec)
+
+mysql>  insert into branch values('CHANDNI','DELHI');
+Query OK, 1 row affected (0.07 sec)
+
+mysql>  insert into branch values('MGROAD','BANGLORE');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into CUSTOMER values('ANIL','CULKATA');
+Query OK, 1 row affected (0.11 sec)
+
+mysql>  insert into CUSTOMER values('RAHUL','BARODA');
+Query OK, 1 row affected (0.08 sec)
+
+mysql>  insert into CUSTOMER values('MADHURI','NAGPUR');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into CUSTOMER values('PRAMOD','NAGPUR');
+Query OK, 1 row affected (0.06 sec)
+
+mysql> insert into CUSTOMER values('SUNIL','DELHI');
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into BORROW values(201,'ANIL','VRCE',1000.00);
+Query OK, 1 row affected (0.12 sec)
+
+mysql> insert into BORROW values(206,'RAHUL','KORLABAGH',5000.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>  insert into BORROW values(311,'SUNIL','MGROAD',3000.00);
+Query OK, 1 row affected (0.07 sec)
+
+mysql> insert into BORROW values(321,'MADHURI','CHANDNI',2000.00);
+Query OK, 1 row affected (0.05 sec)
+
+mysql> insert into BORROW values(375,'PRAMOD','MGROAD',8000.00);
+Query OK, 1 row affected (0.06 sec)
+
+mysql>  select * from BORROW where AMOUNT BETWEEN 2000 AND 3000;
++--------+---------+---------+--------+
+| LoanNo | Cname   | Bname   | Amount |
++--------+---------+---------+--------+
+| 311    | SUNIL   | MGROAD  |   3000 |
+| 321    | MADHURI | CHANDNI |   2000 |
++--------+---------+---------+--------+
+2 rows in set (0.06 sec)
+
+mysql> select * from deposit;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql>  select CNAME,ACTNO from deposit;
++---------+-------+
+| CNAME   | ACTNO |
++---------+-------+
+| ANIL    | 100   |
+| SUNIL   | 101   |
+| RAHUL   | 102   |
+| MADHURI | 103   |
+| PRAMOD  | 104   |
+| SANDIP  | 105   |
++---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> select CNAME from CUSTOMER where CITY = 'NAGPUR';
++---------+
+| CNAME   |
++---------+
+| MADHURI |
+| PRAMOD  |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select CNAME from deposit where ADATE > '1995-11-17';
++---------+
+| CNAME   |
++---------+
+| SUNIL   |
+| MADHURI |
+| PRAMOD  |
+| SANDIP  |
++---------+
+4 rows in set (0.05 sec)
+
+mysql> select ACTNO,AMOUNT from deposit where ADATE BETWEEN 1995-12-01 AND 1996-06-01;
+Empty set, 2 warnings (0.06 sec)
+
+mysql> select ACTNO,AMOUNT from deposit where ADATE BETWEEN '1995-12-01' AND '1996-06-01';
++-------+--------+
+| ACTNO | AMOUNT |
++-------+--------+
+| 101   |   5000 |
+| 103   |   1200 |
+| 104   |   3000 |
+| 105   |   2000 |
++-------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select * from deposit where CNAME LIKE 'C%';
+Empty set (0.07 sec)
+
+mysql> select * from BORROW where CNAME LIKE '_U%';
++--------+-------+--------+--------+
+| LoanNo | Cname | Bname  | Amount |
++--------+-------+--------+--------+
+| 311    | SUNIL | MGROAD |   3000 |
++--------+-------+--------+--------+
+1 row in set (0.00 sec)
+
+mysql> SELECT * from deposit where BNAME = 'CHANDNI' OR 'MGROAD';
++-------+---------+---------+--------+------------+
+| ACTNO | CNAME   | BNAME   | AMOUNT | ADATE      |
++-------+---------+---------+--------+------------+
+| 103   | MADHURI | CHANDNI |   1200 | 1995-12-17 |
++-------+---------+---------+--------+------------+
+1 row in set, 1 warning (0.02 sec)
+
+mysql> SELECT * from deposit where BNAME = 'CHANDNI' OR BNAME = 'MGROAD';
++-------+---------+---------+--------+------------+
+| ACTNO | CNAME   | BNAME   | AMOUNT | ADATE      |
++-------+---------+---------+--------+------------+
+| 101   | SUNIL   | MGROAD  |   5000 | 1996-01-04 |
+| 103   | MADHURI | CHANDNI |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD  |   3000 | 1996-03-27 |
++-------+---------+---------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql>  SELECT * from deposit where BNAME != 'CHANDNI' OR BNAME != 'MGROAD';
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * from deposit where BNAME <> 'CHANDNI' OR BNAME <> 'MGROAD';
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * from deposit where BNAME IS NOT 'CHANDNI' OR BNAME IS NOT 'MGROAD';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''CHANDNI' OR BNAME IS NOT 'MGROAD'' at line 1
+mysql> SELECT * from deposit where BNAME <> 'CHANDNI' OR BNAME <> 'MGROAD';
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql> SELECT * from deposit where BNAME NOT IN ('CHANDNI','MGROAD');
++-------+--------+------------+--------+------------+
+| ACTNO | CNAME  | BNAME      | AMOUNT | ADATE      |
++-------+--------+------------+--------+------------+
+| 100   | ANIL   | VRCE       |   1000 | 1995-03-01 |
+| 102   | RAHUL  | KAROLABAGH |   3500 | 1995-11-17 |
+| 105   | SANDIP | KAROLABAGH |   2000 | 1996-03-31 |
++-------+--------+------------+--------+------------+
+3 rows in set (0.00 sec)
+
+mysql>  SELECT * from deposit where AMOUNT > 1000 ORDER BY CNAME;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
++-------+---------+------------+--------+------------+
+5 rows in set (0.01 sec)
+
+mysql>  SELECT * from deposit where AMOUNT > 1000 ORDER BY CNAME DESC;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
++-------+---------+------------+--------+------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM BORROW WHERE CNAME LIKE '__A%' OR CNAME LIKE '__D%';
++--------+---------+---------+--------+
+| LoanNo | Cname   | Bname   | Amount |
++--------+---------+---------+--------+
+| 321    | MADHURI | CHANDNI |   2000 |
+| 375    | PRAMOD  | MGROAD  |   8000 |
++--------+---------+---------+--------+
+2 rows in set (0.00 sec)
+
+mysql> SELECT * FROM BORROW WHERE AMOUNT BETWEEN 2000 AND 8000;
++--------+---------+-----------+--------+
+| LoanNo | Cname   | Bname     | Amount |
++--------+---------+-----------+--------+
+| 206    | RAHUL   | KORLABAGH |   5000 |
+| 311    | SUNIL   | MGROAD    |   3000 |
+| 321    | MADHURI | CHANDNI   |   2000 |
+| 375    | PRAMOD  | MGROAD    |   8000 |
++--------+---------+-----------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select distinct ACTNO,CNAME,BNAME,AMOUNT,ADATE from deposit;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |   1000 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.02 sec)
+
+mysql>  UPDATE deposit set AMOUNT = AMOUNT * 0.1 WHERE BNAME = 'VRCE';
+Query OK, 1 row affected (0.07 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> SELECT * FROM deposit;
++-------+---------+------------+--------+------------+
+| ACTNO | CNAME   | BNAME      | AMOUNT | ADATE      |
++-------+---------+------------+--------+------------+
+| 100   | ANIL    | VRCE       |    100 | 1995-03-01 |
+| 101   | SUNIL   | MGROAD     |   5000 | 1996-01-04 |
+| 102   | RAHUL   | KAROLABAGH |   3500 | 1995-11-17 |
+| 103   | MADHURI | CHANDNI    |   1200 | 1995-12-17 |
+| 104   | PRAMOD  | MGROAD     |   3000 | 1996-03-27 |
+| 105   | SANDIP  | KAROLABAGH |   2000 | 1996-03-31 |
++-------+---------+------------+--------+------------+
+6 rows in set (0.00 sec)
+
+mysql

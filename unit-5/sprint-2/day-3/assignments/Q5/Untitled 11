@@ -1,0 +1,15 @@
+	
+5.What is the Difference between the sleep and join method .
+	
+Ans:-
+	 There is a difference between join() and sleep(). join() 
+	 will wait until the timeout expires or the thread finishes.
+	 sleep() will just wait for the specified amount of time unless interrupted. 
+	 So it is perfectly possible for join() 
+	 to return much faster than the specified time.
+
+	 The reason why Netbeans warns you about sleep() and not about join() 
+	 is precisely that difference. join() waits for something meaningful 
+	 while sleep() just sits there doing nothing. If you aren't waiting for something,
+	 then why would you want to wait at all? It is rarely meaningful,
+	 hence the warning.

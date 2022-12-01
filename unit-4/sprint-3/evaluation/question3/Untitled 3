@@ -1,0 +1,27 @@
+
+Q.3
+What is the significance of using the final keyword with the following programming
+constructs.
+a. variable
+b. method
+c. class
+
+
+
+Final Keyword In Java.
+	
+	In the Java programming language Final keyword plays the important role.
+	The Final keyword in java is used to restrict the user, means to stop the execution at certain time, It can be used in
+	many context, Like in variable method or class.
+	
+	1) Final with variable
+		The final keyword can be applied with the variables, a final variable that have no value it is called blank final variable, 
+		It can be initialized in the constructor only. The blank final variable can be static also which will be initialized in the 
+		static block only. If we can make any variable as final, then we cannot change the value of final variable(It will constant).
+		
+	2) Final with method.
+		If we can make any method as final, then we cannot override it. The final method cannot be override by any chance, 
+		It will stay constant as whatever it is previously. we can be able to inherit the final method but cannot override.
+		
+	3) We can declare, a class with a final keyword in java. When we declare a class as final, then we restrict other classes to 
+		inherit or extend it. In short java final class can't be extended by other classes in the inheritance.

@@ -1,0 +1,62 @@
+
+
+ What is object downcasting?
+b. Explain with a code example.
+
+Ans:- A.
+
+		Downcasting in java means the typecasting of a parent object to a child object. It cannot be implicit.
+		The referrence of the parent class object is passd to the child class. The methods and variables of both the 
+		classes can be accessed.
+		
+	B.
+	Example:-
+	Let there be a parent  class. There can be many children of a parent, A parent may or may not inherits the child's properties. 
+	However, we can forcefully cast a parent to a child which is known as downcasting. 
+	
+	class Parent {
+	
+	String name;
+	
+	void method()
+	{
+		System.out.println("Method From Parent");
+		}
+	}
+	
+	class child extends Parent {
+	int id;
+	
+	@Override  void method()
+	{
+		System.out.println("zMethod From Child");
+		}
+		
+		}
+		
+	public class ABC {
+	
+	public static vaoid main(String[] args)
+	
+	{
+	
+	Parent P = new Child();
+	p.name = "Deshmane";
+	
+	System.out.println(p.name);
+	
+	p.method();
+	
+	Child c = (Child)p;
+	
+	c.id = 1;
+	
+	System.out.println(c.name);
+	System.out.println(c. id);
+	c.method();
+	}
+	}
+	
+	
+		 
+

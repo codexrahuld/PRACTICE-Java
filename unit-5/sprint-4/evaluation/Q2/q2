@@ -1,0 +1,77 @@
+
+Q2/-  How many types of relationships exist among tables in the
+	Database? Explain with some examples, and also mention how to
+	establish these relationships among tables with Example.
+	
+Ans:-
+
+	There are 3 Different types of relationship exit among tables in the database.
+	1) One to One
+	2) One to Many
+	3) Many to Many
+	
+	---------------------------------------------------------------------------------------------
+	
+	One to one relationships:-
+	One to one relationship is very rarely used relationship. 
+	
+	Example:- 
+	In the database we want to store employee but also their valid identity card we are 
+	not interested to storing any other types of documents or identity cards that we 
+	previously valid so we need exactly one identity card.
+	
+	One employee can have only one one identity card.
+	One Identity card can belong to only one employee.
+	This is the One To One Relationship
+	
+	------------------------------------------------------------------------------------------------
+	
+	one to Many Relationship
+	
+	In one to many relationship we simply add table1 primary key to table2 as foreign key,
+	Imagine that we want to store employee in database for each employee also store department but in 
+	separate table that time we use one to many relationship.
+	
+	Example:-  Department Table did is primary key we store this in employee table as foreign key
+	
+	+-------+------------+------------+
+	|did | dname | location | 
+	+-------+------------+------------+
+	| 1|Account  |nashik |
+	| 2|Sales    pune |
+	| 3|HR |   Mumbai |
+	| 4|Marketing | Thane |
+	+-------+------------+------------+
+	
+	employee table we store deptid of department table as foreign key in employee table
+		+-------+------------+------------+-------+-----------+---------+
+		|empid | ename | address | mobile | salary | deptid |
+		+-------+------------+------------+-------+-----------+---------+
+		| 1| rahul | nashik | 9877886675 | 11000 | 1 |
+		| 2| sameer | pune | 9973826667 | 13000 | 1 |
+		| 2| chetan | Thane | 9973826667 | 12000 | 2 |
+		| 2| roshan | Hydrabad | 9973826667 | 14000 | 2 |
+		| 2| Diksha | Bengluru | 9973826667 | 15000 | 3 |
+		| 2| Pankaj | Mumbai | 9973826667 | 16000 | 3 |
+		| 2| sachin | Dehradun | 9973826667 | 17000 | 4 |
+		| 2| tushar | Kashmir | 9973826667 | 19000 | 4 |
+		+-------+------------+------------+-------+-----------+---------+
+		
+		-----------------------------------------------------------------------------------------------------
+		
+		Many to Many Relationship
+		
+		In Many to Many relationship both tables could have multiple rows on the other side.
+		
+		Example:
+		One employee during the time can call many customer also one customer during the time 
+		could recived call from many employees.
+		
+		We need to create 3 table here
+		1. employee
+		2. customer
+		3.call table(for maintaining the relationships).
+		
+		
+	
+	

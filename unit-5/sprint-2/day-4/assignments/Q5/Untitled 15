@@ -1,0 +1,23 @@
+
+
+Q5/- What is the difference between the sleep and wait method?
+Ans :
+
+
+	Sleep :
+   =========
+
+   1) Call on Thread execute task get beer (is class method so affect on current running thread) .
+   2) when waiting condition to continue execute (Waiting beer available) .
+   3) keep lock for at least t times (or until interrupt) (My job still not finish, i'm continue hold lock and waiting some condition 
+      to continue)	.
+   4) until at least time expire or call interrupt
+
+   Wait :
+  ======== 
+
+  1) Call on current thread that hold HandObject Object .
+  2) when synchronized multi thread access same Object (HandObject) (When need communication between more than one thread 
+     (thread execute coding, thread execute get beer) access on same object HandObject ) .
+  3) release the lock for other object have chance to execute (HandObject is free, you can do other job)
+  4) until call notify(), notifyAll() from object

@@ -1,0 +1,28 @@
+
+
+Q1/- What is the requirement of Java Database communication?
+
+Ans:->  Using JDBC there are 5 steps for connecting java application with the database,
+		The  steps are as follows:
+		
+		1) Register the Drive Class:
+			The forName() method of Class class is used to register the driver class. This method is 
+			used to dynamically load the driver class.
+			Syntax:- forName()
+			
+		2) Create the Connection Object
+			The getConnection() method of DriverManager class id used to establish connection with the database.
+			Syntax of getConnection() method
+			public static Connection getConnection(String url)throws SQLException.
+			
+		3)Create the Statement Object 
+			The createStatement() Method of connection interface is used to create statement. The Object of 
+			statements is responsible to execute queries with the database.
+			
+		4) Execute the Query
+			The ececuteQuery() method of Statement interface is used to execute queries to the database.This method returns the 
+			object of ResultSet that can be used to get all the records of table.
+			
+		5) Close the Connection Object
+			By closing connection object statement and ResultSet will be closed automatically. The close() method of 
+			Connection interface is used to close the connection.

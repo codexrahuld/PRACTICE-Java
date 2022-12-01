@@ -1,0 +1,77 @@
+Q1/-
+Cocoa Confections is a small bakery that sells brownies, cookies, pies, and other
+delicious treats to customers online. It keeps records of all of its online sales in an
+SQL database that is automatically populated as customers places orders on its site.
+In its database, Cocoa Confections has a customers table to keep track of customer
+contact information, and an orders table to keep track of various orders that those
+customers have placed. The schema of these tables is as follows:
+
+--->
+
+CREATE TABLE customers (
+customer_id INT PRIMARY KEY,
+first_name VARCHAR(255) NOT NULL,
+last_name VARCHAR(255) NOT NULL,
+email VARCHAR(255) NOT NULL,
+address VARCHAR(255) DEFAULT NULL,
+city VARCHAR(255) DEFAULT NULL,
+state VARCHAR(2) DEFAULT NULL,
+zip_code VARCHAR(5) DEFAULT NULL
+);
+
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> CREATE TABLE orders (
+    -> order_id INT PRIMARY KEY,
+    -> customer_id INT NOT NULL,
+    -> order_placed_date DATE NOT NULL,
+    -> FOREIGN KEY (customer_id) REFERENCES customers
+    -> (customer_id)
+    -> );
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> select * from customers;
++-------------+------------+-----------+---------------+------------+----------+-------+----------+
+| customer_id | first_name | last_name | email         | address    | city     | state | zip_code |
++-------------+------------+-----------+---------------+------------+----------+-------+----------+
+|           1 | abc        | a         | abc@gmail.com | 1st street | chennai  | TN    | 60001    |
+|           2 | efg        | e         | efg@gmail.com | 2nd street | Banglore | KA    | 50002    |
+|           3 | ijk        | i         | ijk@gmail.com | 3nd street | Mumbai   | MH    | 40002    |
++-------------+------------+-----------+---------------+------------+----------+-------+----------+
+3 rows in set (0.00 sec)
+
+mysql> insert into orders values(1,1,'2016-11-11');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders values(2,1,'2016-10-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders values(3,2,'2016-06-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders values(4,2,'2015-06-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into orders values(5,1,'2015-06-01');
+Query OK, 1 row affected (0.01 sec)
+
+mysql> select * from orders;
++----------+-------------+-------------------+
+| order_id | customer_id | order_placed_date |
++----------+-------------+-------------------+
+|        1 |           1 | 2016-11-11        |
+|        2 |           1 | 2016-10-01        |
+|        3 |           2 | 2016-06-01        |
+|        4 |           2 | 2015-06-01        |
+|        5 |           1 | 2015-06-01        |
++----------+-------------+-------------------+
+5 rows in set (0.00 sec)
+
+select c.email,count(e.order_id) order_count  from customers c INNER JOIN orders e ON c.customer_id = e.customer_id where e.order_placed_date > '2015-12-31' group by c.email order by order_count desc;
++---------------+-------------+
+| email         | order_count |
++---------------+-------------+
+| abc@gmail.com |           2 |
+| efg@gmail.com |           1 |
+
+

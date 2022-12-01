@@ -1,0 +1,20 @@
+
+
+Different Between process and thread?
+
+
+Ans:-
+
+	process:															
+	Process means any program is in execution.
+	The process takes more time to terminate.
+	It takes more time for creation.
+	It also takes more time for context switching.
+	The process does not share data with each other.
+
+	THread:
+	Thread means a segment of a process.
+	The thread takes less time to terminate.
+	It takes less time for creation.
+	It takes less time for context switching.
+	Threads share data with each other.

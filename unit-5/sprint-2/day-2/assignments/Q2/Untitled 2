@@ -1,0 +1,23 @@
+
+
+2.Benefits of Multithreding?
+
+Ans:-
+Resource Sharing
+	All the threads of a process share its resources such as memory, 
+	data, files etc. A single application can have different threads
+	within the same address space using resource sharing.
+	Responsiveness:
+	 Program responsiveness allows a program to run even if part of it is blocked using
+	 multithreading. This can also be done if the process is performing a lengthy 
+	 operation. For example - A web browser with multithreading can 
+	 use one thread for user contact and another for image loading at the same time	
+	Utilization of Multiprocessor Architecture:
+	In a multiprocessor architecture, each thread can run on a different processor 
+	in parallel using multithreading. This increases concurrency of the system. 
+	This is in direct contrast to a single processor system, 
+	where only one process or thread can run on a processor at a time.	 
+	Economy It is more economical to use threads as they share the process resources.
+	 Comparatively, it is more expensive and time-consuming to create processes as 
+	 they require more memory and resources. The overhead for process creation and
+	 management is much higher than thread creation and management.	

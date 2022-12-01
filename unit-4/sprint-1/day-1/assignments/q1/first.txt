@@ -1,0 +1,13 @@
+
+
+
+1) What are the benefits of using java language?
+
+Ans:- Java is easy to learn, general purpose, robust, secure, and object-oriented programming language. 
+	It is a high-level language, java syntax uses English language. 
+	Java uses automatic garbage collection, therefore we don't need to remove the unreferenced objects from memory.
+	Java uses object-oriented paradigm, which makes it more practical. Everything in java is an object which takes
+	care of both data and behaviour.
+	Java is secure programming lanuage because it doesn't use explicit pointers. Also, java programs run inside the 
+	Virtual machine sandbox.
+

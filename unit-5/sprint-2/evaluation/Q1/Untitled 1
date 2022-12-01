@@ -1,0 +1,94 @@
+
+Q1: Explain the meaning of the deadlock in multithreaded application, when it can occur in
+	multithreading applications.Write one example of deadlock.
+
+Ans:- Deadlock:
+		1) A lock without key is nothing but the deadlock.
+		2) If two threads are waiting for each other forever(for infinite time).
+		3) The Synchronized keyword is the only reason for deadlock.
+		4) There is no any solution for the deadlock but there are several prevention is there.
+		
+		
+		Example:
+		
+		class A {
+		
+			public synchronized void funA(B b1){
+				System.out.println("funA of A starts");
+				b1.fun2();
+				
+				System.out.println("funA of A ends");
+				}
+				
+			public synchronized void fun1(){
+			System.out.println("inside fun1 of A");
+			
+			}
+			}
+			
+		class B {
+		
+			public synchronized void funB(A a1) {
+			System.out.println("funB of B starts");
+			a1.fun1();
+			System.out.println("funB of B ends");
+			}
+			
+			public synchronized void fun2(){
+			System.out.println("inside fun2 of B");
+			
+			}
+			}
+			
+		class ThreadA extends Thread{
+		
+		A a1;
+		B b1;
+		
+		
+		public ThreadA(A a1, B b1) {
+			this.b1=b1;
+			this.a1=a1;
+			
+			}
+		
+		@Override
+		public void run()  {
+		a1.funA(b1);
+		}
+		}
+		
+		class ThreadB extends Thread{
+		
+		A a1;
+		B b1;
+		
+		public ThreadB(A a1, B b1) {
+		this.b1=b1;
+		this.a1=a1;
+		}
+		
+		@Override 
+		public void run() {
+			b1.funB(a1);
+			}
+			}
+			
+		
+		class Main {
+		
+			public static void main(String[] args) {
+			
+			
+				A a1 = new A();
+				B b1 = new B();
+				ThreadA t1 = new ThreadA(a1, b1);
+				ThreadB t2 = new ThreadB(a1, b1);
+				t1.start();
+				t2.start();
+				
+				}
+				}
+				
+				
+				//Here if any method of class A or class B we remove the synchronized keyword then it will not become deadlock.

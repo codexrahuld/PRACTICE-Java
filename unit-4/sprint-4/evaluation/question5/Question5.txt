@@ -1,0 +1,121 @@
+Q.5
+
+
+	a. When should you use LinkedList over ArrayList?
+	
+	
+Ans. a) Linkedlist should be used where modifications to a collection are frequent like addition/deletion operations. Linkedlist is much faster as compared to arraylist in such cases.
+	  In case of read-only collections or collections which are rarely modified, Arraylist is suitable.
+	 
+	  
+	 b. When should you use a Set over a List?
+     b) List allows duplicates while set dosent allows duplicates elements. All the elements of a set should be unique if you try to insert the duplicate element in set it would replace the
+	  existing value. List permits any number of null values in its collection whilw set permits only one null value in its collection. When such a nessicity is their we can use respective
+	  things set or list.
+
+
+
+
+	c. What is the difference between final and finally. Write the code for
+	the same.
+
+    Ans:-  c) Final is the access modifier which is used to apply restrictions on a class, method or variable. Finally is the block in java Exception handling to execute the important code
+	  whether the exception occurs or not.
+
+	 Ex. Final
+
+		public class FinalExample{
+			final int age = 24;
+			void display(){
+				age = 56; 
+			}
+			public static void main(String[] args){
+				FinalExample obj = new FinalExample();
+				obj.display();
+			}
+		}
+		
+	 Ex. Finally
+		
+		public class FinallyExample{
+	
+			public static void main(String[] args){
+				try{
+					System.out.println("Inside try block");
+					int data=25/0;
+					System.out.println(data);
+				}
+				catch{
+					System.out.println("Exception Handled");
+					System.out.println(e);
+				}
+				finally{
+					System.out.println("THIS BLOCK IS ALWAYS EXECUTED");
+				}
+			}
+		}
+
+
+
+
+
+
+
+	d. What is the difference between throw and throws. Write the code
+	for the same.
+
+	Ans:-	  d) The throws keyword is used to declare which exception can be thrown from a method, while the throw keyword is used to explicitely throw an exception within a method or
+	     block of code.
+
+
+		Ex. Throws
+		
+            public class ThrowsExample{
+
+
+			public static int divideNum(int m, int n) throws ArathimaticException{
+				int div = m/n;
+				return div;
+			}
+
+	
+			public static void main(String[] args){
+
+				ThrowsExample obj = ThrowaExample();
+
+				try{
+					System.out.println(obj.divideNum(45,0));
+					
+				}
+				catch(ArathimaticException e){
+					System.out.println("no cannot be divided by zero");
+					
+				}
+			}
+		}
+		
+		 Ex. Throw
+
+			     public class ThrowExample{
+
+
+			static void method() throws ArathimaticException{
+				System.out.println("Inside a method()");
+				throw new ArathimaticException("Throwing new ArathimaticException");
+			}
+
+	
+			public static void main(String[] args){
+
+				try{
+					method();
+				}
+				catch(ArathimaticException e){
+					System.out.println("cought in main() method");
+					
+				}
+			}
+		}
+			
+               
+		

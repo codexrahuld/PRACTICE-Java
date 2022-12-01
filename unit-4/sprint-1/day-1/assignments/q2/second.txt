@@ -1,0 +1,7 @@
+
+
+2) Why is Java knows as Platform Independent Language?
+
+Ans:- Java is platform independent because it uses virtual machine . The java programming language and all API's are 
+	Compiled into bytecodes. Bytecodes are effectively platform-independent. The virtual machine takes care of 
+	the differences between the bytecodes for the different p[latforms.

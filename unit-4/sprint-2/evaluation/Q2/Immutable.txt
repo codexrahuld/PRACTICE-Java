@@ -1,0 +1,17 @@
+What do you understand by “Java Strings are immutable”.
+Explain the advantages and disadvantages of immutability of
+Strings.
+
+
+Ans:- In Object oriented programming or in java Immutable strings means that cannot be modified once it is created. 
+		But we can only change the reference to the object.
+		The string is Immutable in java because of the security, caching, and class loading.  The reason of making string 
+		final is to destroy the immutability and to not allow others to extend it.
+		
+		
+		*Advantages:- 1) Improve Performance.
+						2) Easy to copy.
+						3) Being Immutable makes the string theread safe.
+						
+		* Disadvantages:- We can not concatinate.
+		

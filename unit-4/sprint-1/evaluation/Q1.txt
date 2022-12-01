@@ -1,0 +1,16 @@
+package Q1: Explain the four pillars of object-oriented programming.
+
+Ans:-> The four Pillars of object oriented Programming Are as follows.
+    1) Abstraction: Abstraction is the method in which the concept include is it can wrapping up complex actions
+                    in simple verbs. It means wrapping the same kind of data into one bundle. It can hide the
+                    complexity.
+    2) Encapsulation: Encapsulation means the action of enclosing something in or as if in a capsule. Removing
+                       access to parts of your code and making things private. it also means Each object in your
+                       code should control its own state.
+    3) Inheritance: Inheritance is the concept which says that the child has all the properties of his parent.
+                       Reusability is the main method used in the Inheritance, It lets one object acquire the
+                       properties and methods of another object.
+    4) Polymorphism: The term mean as Poly means Many And morphs means types.  It says that The Condition of
+                        occuring in several different forms. It occurs when we ahve many classes that are
+                        related to each other.
+

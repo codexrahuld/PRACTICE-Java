@@ -1,0 +1,34 @@
+Q4) Explain the difference between Checked and Unchecked exception?
+
+Checked-Exception:-
+
+  1. CheckedException are occur at compile time. 
+  2. Compiler check these kind of exception.
+  3. These exception are the sub-class of Exception class.
+  4. Here the compiler need to catch the exception and handle.
+  5. Some of example of these Exception are.
+     . File Not Found Exception.
+     . No Such Field Exception.
+     . Class Not Found Exception.
+     . No Such Method Exception.
+
+
+
+
+
+
+
+Unchecked-Exception:-
+ 
+  1. UncheckedException are occur at run time.
+  2. Compiler does't check these kind of exception.
+  3. These exception are come under RuntimeException,RuntimeException come under Exception.
+  4. Here the compiler no need to handle the exception. 
+  5. Some of example of these Exception are.
+     . Arithmetic Exception.
+     . NullPointer Exception.
+     . Empty Stack Exception.
+     . Array Index Out Of Bounce Exception.
+
+
+

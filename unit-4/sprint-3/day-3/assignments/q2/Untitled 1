@@ -1,0 +1,41 @@
+/*Q2) What is the use of ‘super’ keywords in java ? Explain with an example?
+Ans:- 
+
+	1) On other hand super keyword represents the current instance of a parent class.
+	2) super keyword used to call default constructor of the parent class.
+	3) One can access the method of parent class with the help of super keyword.
+	4) On other hand super keyword can't be referred from static context i.e can't
+	 be invoked from static instance. For instance we cannot write System.out.println(super.x)
+	 this will leads to compile time error.
+
+
+ */
+
+
+
+
+
+package com.masai.assignment.day10.q2;
+
+
+		class Animal{  
+		String color="white"; 
+
+	}  
+
+			class Dog extends Animal{  
+			String color="black";  
+			void printColor(){  
+	
+			System.out.println(color);//prints color of Dog class  
+			System.out.println(super.color);//prints color of Animal class  
+	}  
+	}  
+			class Super1{  
+			public static void main(String args[]){  
+			Dog d=new Dog();  
+			d.printColor();  
+
+	}
+
+	} 
